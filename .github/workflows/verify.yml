@@ -1,0 +1,25 @@
+name: Verify ProjectFrame
+on: [push, pull_request, workflow_dispatch]
+permissions:
+  contents: read
+jobs:
+  verify:
+    runs-on: ubuntu-latest
+    strategy:
+      matrix:
+        python: ['3.11', '3.13']
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-python@v5
+        with:
+          python-version: ${{ matrix.python }}
+      - uses: actions/setup-node@v6
+        with:
+          node-version: '24'
+      - run: python3 -m unittest discover -s tests -p test_projectframe.py -v
+      - run: npm test
+      - run: npm pack --dry-run
+      - name: Verify isolated installation and helper startup
+        run: |
+          node cli/projectframe.mjs install --destination "$RUNNER_TEMP/skills/projectframe"
+          python3 "$RUNNER_TEMP/skills/projectframe/scripts/projectframe.py" --help

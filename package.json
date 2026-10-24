@@ -1,0 +1,46 @@
+{
+  "name": "projectframe-cli",
+  "version": "0.1.0",
+  "description": "Install the ProjectFrame skill for Codex: coordinate requirements, method selection, implementation context, recovery and acceptance.",
+  "type": "module",
+  "bin": {
+    "projectframe": "cli/projectframe.mjs"
+  },
+  "files": [
+    "cli/*.mjs",
+    "tools/install.py",
+    "skills/projectframe/SKILL.md",
+    "skills/projectframe/agents/*.yaml",
+    "skills/projectframe/references/*.md",
+    "skills/projectframe/scripts/*.py",
+    "README.ko.md",
+    "README.zh.md"
+  ],
+  "engines": {
+    "node": ">=18"
+  },
+  "license": "UNLICENSED",
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/ProjectFrame-skills/ProjectFrame.git"
+  },
+  "homepage": "https://github.com/ProjectFrame-skills/ProjectFrame#readme",
+  "bugs": {
+    "url": "https://github.com/ProjectFrame-skills/ProjectFrame/issues"
+  },
+  "keywords": [
+    "codex",
+    "skill",
+    "projectframe",
+    "requirements",
+    "context-continuity"
+  ],
+  "scripts": {
+    "test": "node --test tests/*.test.mjs",
+    "test:runtime": "python3 -m unittest discover -s tests -p test_projectframe.py -v"
+  },
+  "publishConfig": {
+    "access": "public",
+    "registry": "https://registry.npmjs.org/"
+  }
+}

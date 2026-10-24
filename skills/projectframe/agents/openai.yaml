@@ -1,0 +1,3 @@
+interface:
+  display_name: "ProjectFrame"
+  short_description: "Coordinate project requirements, implementation and recovery"
