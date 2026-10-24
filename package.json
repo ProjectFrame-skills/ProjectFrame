@@ -1,6 +1,6 @@
 {
   "name": "projectframe-cli",
-  "version": "0.1.0",
+  "version": "0.1.1",
   "description": "Install the ProjectFrame skill for Codex: coordinate requirements, method selection, implementation context, recovery and acceptance.",
   "type": "module",
   "bin": {
